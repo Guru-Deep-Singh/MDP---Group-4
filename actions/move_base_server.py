@@ -6,7 +6,7 @@ import geometry_msgs.msg
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 
-class MoveBaseCall(object):
+class MoveBaseServer(object):
     def __init__(self):
         # Launch Client and wait for server
         self.client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)
@@ -34,10 +34,10 @@ class MoveBaseCall(object):
         
 
 if __name__ == "__main__":
-    rospy.init_node("move_base_call")
-    rospy.loginfo("move_base_call server started")
+    rospy.init_node("move_base_server")
+    rospy.loginfo("move_base_server started")
 
-    move_base = MoveBaseCall()
+    move_base = MoveBaseServer()
     goal_pose = geometry_msgs.msg.Pose()
     goal_pose.position.x = 1.0
     goal_pose.position.y = 0.0
